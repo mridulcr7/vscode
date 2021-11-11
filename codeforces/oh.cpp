@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h> 
 
 using namespace std;
@@ -43,12 +44,53 @@ int msb(ll n)
 
 void solve()
 {
-    ll k,n,t,max,min,d;
-    cin>>n>>k;
-    t=n*(n-1);
-    max=2*(n-1);
-    d=k/2;
-    cout<<max-d*2<<"\n";
+    int n,x=0,y=0;
+    cin>>n;
+    vector<pr> a;
+    for(int i=0;i<n;i++)
+    {
+        cin>>x>>y;
+        a.push_back(make_pair(x,y));
+    }
+    sort(a.begin(),a.end());
+    x=a[0].second;
+    int i=0,ans=0,t=x;
+   while(x>0)
+   {
+       if(a[i].second==x)
+       {
+           i++;
+           ans++;
+       }
+       else
+       break;
+       x--;
+   }
+   if(ans==t)
+   {
+       cout<<"NO\n";
+       return;
+   }
+   x=a[n-1].second;
+   i=n-1,ans=0,t=n-x+1;
+   while(x<=n)
+   {
+     
+       if(a[i].second==x)
+       {
+           i--;
+           ans++;
+       }
+       else
+       break;
+         x++;
+   }
+    if(ans==t)
+   {
+       cout<<"NO\n";
+       return;
+   }
+   cout<<"YES\n";
 }
 int main() {
     ios::sync_with_stdio(0);

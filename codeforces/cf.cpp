@@ -33,7 +33,7 @@ int msb(int n)
       
     return k;
 }
-/*
+
 void solve()
 {
     ll n,j,k=INT_MIN,i,l,r,m=0,t,rem,p1,p2,s;
@@ -53,7 +53,7 @@ void solve()
                             ans[i]=a[i].second;
                         }
 }
-*/
+
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
