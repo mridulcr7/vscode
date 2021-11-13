@@ -6,13 +6,25 @@ void generate(vector<int> &a,vector<int> &c,int n,int k)
 {
     if(k==n)
     {
-
+        int m=c.size();
+        if(m==0)
+        {
+            cout<<"NULL\n";
+            return;
+        }
+       // cout<<m<<" ";
+        for(int i=0;i<m;i++)
+        cout<<c[i]<<" ";
+        cout<<"\n";
+        
     }
     else
     {
-        c.push_back(a[k++]);
-        generate(a,c,n,k);
-
+        c.push_back(a[k]);
+        generate(a,c,n,k+1);
+      //  cout<<"Deleted element-"<<a[k]<<"\n";
+        c.pop_back();
+        generate(a,c,n,k+1);
     }
 }
 
