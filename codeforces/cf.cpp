@@ -17,14 +17,27 @@ struct comp1{
         return a.first < b.first;
     }
 };    
-ll mod=1000000007;
-
-int abs(int a,int b)
+int mridul=200000;
+vector <int> ans;
+void sieve()
 {
-    if(a>b)
-    return a-b;
-    else
-    return b-a;
+    bool prime[mridul+1];
+    memset(prime,true,sizeof(prime));
+    int i,p;
+    for(p=2;p*p<=mridul;p++)
+    {
+        if(prime[p]==true)
+        {
+            for(i=p*p;i<=mridul;i+=p)
+            {
+                prime[i]=false;
+            }
+        }
+    }
+    for (p = 2; p <= mridul; p++)
+        if (prime[p])
+            ans.push_back(p);
+
 } 
 
 int msb(int n)
@@ -36,38 +49,77 @@ int msb(int n)
 
 void solve()
 {
-    ll n,j,k=INT_MIN,i,l,r,m=0,t,rem,p1,p2,s;
-    cin>>n;
-    vector<int> arr(n),ans(n);
-    vector<pr> a;
-      for(i=0;i<n;i++)
-      cin>>arr[i];
-        for(i=0;i<n;i++)
+    ll n,d,i,j,a=0,b=0,ans=0,m=INT_MIN,o;
+    cin>>n>>d;
+    string s;
+    cin>>s;
+    i=0,j=0,o=0;
+    while(j<n)
+    {
+        if(s[j]=='b')
         {
-            a.push_back(make_pair(msb(arr[i]),arr[i]));
+            o++;
         }
-        sort(a.begin(),a.end());
-        for(i=0;i<n;i++)
-                        {
-                           cout<<a[i].first<<" "<<a[i].second<<"\n";
-                            ans[i]=a[i].second;
-                        }
+        if(o>d)
+        {
+            while(o>d)
+            {
+                if(s[i]=='b')
+                o--;
+                i++;
+            }
+            a=j-i+1;
+            if(a>m)
+            m=a;
+            j++;
+        }
+        else
+        {
+            a=j-i+1;
+            if(a>m)
+            m=a;
+            j++;
+        }
+    }
+    i=0,j=0,o=0;
+    while(j<n)
+    {
+        if(s[j]=='a')
+        {
+            o++;
+        }
+        if(o>d)
+        {
+            while(o>d)
+            {
+                if(s[i]=='a')
+                o--;
+                i++;
+            }
+            b=j-i+1;
+            if(b>m)
+            m=b;
+            j++;
+        }
+        else
+        {
+            b=j-i+1;
+            if(b>m)
+            m=b;
+            j++;
+        }
+    }
+    cout<<m<<"\n";
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 	int t=1,n,j,k=0;
-    cin>>n;
-    for(j=0;j<=31;j++){
-         if((n&(1<<j))!=0)
-           {
-              cout<<"1\n";
-              k++;
-           }
-           else
-           {
-              cout<<"0\n";
-           }
-     }  
+  //  cin>>t;
+   // sieve();
+    while(t--)
+    {
+        solve();
+    }
 }
