@@ -8,39 +8,11 @@ typedef pair<ll,ll> pr;
 
 ll mridul=INT_MAX;
 
+ll mm=1e9;
+
 bool compare(pair<string,ll> &a, pair<string,ll> &b)
 {
-    // if(a.second==b.second)
-    // {
-    //     int l=a.first.size(),z1=a.second,z2=a.second,ans1=0,ans2=0;
-    //     for(int i=0;i<l;i++)
-    //     {
-    //         if(a.first[i]=='1')
-    //         {
-    //             ans1=ans1+z1;
-    //         }
-    //         else
-    //         {
-    //             z1--;
-    //         }
-    //         if(b.first[i]=='1')
-    //         {
-    //             ans2=ans2+z2;
-    //         }
-    //         else
-    //         {
-    //             z2--;
-    //         }
-    //     }
-    //     if(ans1<ans2)
-    //         {
-    //             return a.second>b.second;
-    //         }
-    //         else
-    //         {
-    //             return a.second<b.second;
-    //         }
-    // }
+    
     return a.second>b.second;
 }
  
@@ -71,127 +43,51 @@ int msb(ll n)
     return i;
 }
 
-// void generate(vector<int> &a,vector<int> &c,ll n,ll z,int k)
-// {
-//     if(k==n)
-//     {
-//         ll ans=1,v;
-//         ll m=c.size();
-//         if(m==0)
-//         {
-//             return;
-//         }
-//        // cout<<m<<" ";
-//         for(int i=0;i<m;i++)
-//         ans=ans*c[i];
-//         // cout<<m<<" "<<n<<" "<<ans<<" "<<n/ans<<" "<<mridul<<" ";
-//         if(ans>z/ans)
-//         {
-//             v=ans;
-//         }
-//         else
-//         {
-//             v=z/ans;
-//         }
-//         if(v<mridul)
-//         mridul=v;
-//         //cout<<mridul<<"\n";
-//     }
-//     else
-//     {
-//         c.push_back(a[k]);
-//         generate(a,c,n,z,k+1);
-//       //  cout<<"Deleted element-"<<a[k]<<"\n";
-//         c.pop_back();
-//         generate(a,c,n,z,k+1);
-//     }
-// }
+ll digit(ll n)
+{
+    ll s=0;
+    while(n>0)
+    {
+        s=s+n%10;
+        n/=10;
+    }
+    return s;
+}
 
 void solve()
 {
-    int n,ans=0;
+    ll n,i,j,m=0,t;
     cin>>n;
-    string s;
-    cin>>s;
-    vector<int> a(26,0),b(26,0);
+    vector<vector<ll>> a(n,vector<ll>(n));
     for(int i=0;i<n;i++)
     {
-        if(s[i]>=65 && s[i]<=90)
-        {
-            a[s[i]-65]++;
-        }
+        if(i%2==0)
+        m=i*n+1;
         else
+        m=(i+1)*n;
+        for(int j=0;j<n;j++)
         {
-            b[s[i]-97]++;
+            a[j][i]=m;
+            if(i%2==0)
+            m++;
+            else
+            m--;
         }
     }
-    for(int i=0;i<26;i++)
+    for(i=0;i<n;i++)
     {
-        if(a[i]>0)
-        {
-            a[i]=0;
-            ans++;
-        }
-        if(b[i]>0)
-        {
-            b[i]=0;
-            ans++;
-        }
+        for(j=0;j<n;j++)
+        cout<<a[i][j]<<" ";
+        cout<<"\n";
     }
-    int j=0,i=0,o=0,t=0,m=INT_MAX;
-    while(j<n)
-    {
-        if(s[j]>=65 && s[j]<=90)
-        {
-            a[s[j]-65]++;
-            if(a[s[j]-65]==1)
-            t++;
-        }
-        else
-        {
-            b[s[j]-97]++;
-            if(b[s[j]-97]==1)
-            t++;
-        }
-        if(t==ans)
-        {
-            while(t==ans)
-            {
-                if(s[i]>=65 && s[i]<=90)
-                {
-                    a[s[i]-65]--;
-                    if( a[s[i]-65]==0)
-                    t--;
-                    else
-                        i++;
-                }
-                else if(s[i]>=97 && s[i]<=122)
-                {
-                    b[s[i]-97]--;
-                    if(b[s[i]-97]==0)
-                   {
-                       t--;
-                   }
-                    else
-                    i++;
-                }
-            
-            }
-            m=min(m,j-i+1);
-            j++;
-        }
-        else
-        {
-            j++;
-        }
-    }
-    cout<<m<<"\n";    
-}        
+}
+   
+       
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 	int t=1;
-   // cin>>t;
+  //  cin>>t;
     while(t--)
     {
        solve();

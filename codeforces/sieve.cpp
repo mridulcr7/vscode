@@ -4,9 +4,10 @@ using namespace std;
 
 vector<int> a;
 
-void sieve(int n)
+int sieve(int n)
 {
     bool prime[n+1];
+    int c=0;
     memset(prime,true,sizeof(prime));
     int i,p;
     for(p=2;p*p<=n;p++)
@@ -21,8 +22,10 @@ void sieve(int n)
     }
     for (p = 2; p <= n; p++)
         if (prime[p])
-            a.push_back(p);
-
+            {
+                c++;
+            }
+            return c;
 }
 
 int main() {
@@ -30,11 +33,11 @@ int main() {
     cin.tie(0);
 	int n;
     cin>>n;
-    sieve(n);
-    for(auto it=a.begin();it!=a.end();it++) 
-    {
-        cout<<*it<<"\n";
-    }
+    cout<<sieve(n);
+    // for(auto it=a.begin();it!=a.end();it++) 
+    // {
+    //     cout<<*it<<"\n";
+    // }
 }
 
 

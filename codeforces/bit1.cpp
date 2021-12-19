@@ -19,9 +19,9 @@ int main()
     cout<<"2^msb:"<<t<<"\n";
     // for  long long 
     ll a=11;
-    cout<< __builtin_clzll(a);
+    cout<< __builtin_clzll(a)<<"\n";
     ll k=63-__builtin_clzll(a);
-    cout<<"msb of 17 is:"<<k<<"\n";
+    cout<<"msb of 11 is:"<<k<<"\n";
     ll j=(1ll<<k);
     cout<<"2^msb:"<<j<<"\n\n";
 
@@ -46,7 +46,11 @@ int main()
      cout<<b<<"\n";
      b=b^(1<<3);//inverts a particular bit
      cout<<b<<"\n";
-     
+     b=16;
+     if((b&(b-1))==0)//check a number is power of two
+     {
+         cout<<"Power of 2\n";
+     }
     
      
 }
