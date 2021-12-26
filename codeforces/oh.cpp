@@ -56,29 +56,26 @@ ll digit(ll n)
 
 void solve()
 {
-    ll n,i,j,m=0,t;
-    cin>>n;
-    vector<vector<ll>> a(n,vector<ll>(n));
-    for(int i=0;i<n;i++)
+    ll n,i,j,m=0,t,q,l,r;
+    cin>>n>>q;
+    vector<ll> a(n+1),x(n+1,0),y(n+1,0),z(n+1,0);
+    for(int i=1;i<=n;i++)
     {
-        if(i%2==0)
-        m=i*n+1;
+        cin>>a[i];
+        x[i]+=x[i-1];
+        y[i]+=y[i-1];
+        z[i]+=z[i-1];
+        if(a[i]==1)
+        x[i]+=1;
+        else if(a[i]==2)
+        y[i]+=1;
         else
-        m=(i+1)*n;
-        for(int j=0;j<n;j++)
-        {
-            a[j][i]=m;
-            if(i%2==0)
-            m++;
-            else
-            m--;
-        }
+        z[i]+=1;
     }
-    for(i=0;i<n;i++)
+    for(int i=0;i<q;i++)
     {
-        for(j=0;j<n;j++)
-        cout<<a[i][j]<<" ";
-        cout<<"\n";
+        cin>>l>>r;
+        cout<<x[r]-x[l-1]<<" "<<y[r]-y[l-1]<<" "<<z[r]-z[l-1]<<"\n";
     }
 }
    
