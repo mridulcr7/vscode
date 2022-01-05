@@ -3,69 +3,54 @@
 
 using namespace std;
 
-typedef long long ll;
-typedef pair<ll,ll> pr;
+//typedef long long ll;
+//typedef pair<ll,ll> pr;
 
 
 void solve()
 {
-    ll n,m,ans=0;
-    cin>>n>>m;
-    vector<ll> a(n*m),c(n*m);
-    for(int i=0;i<(n*m);i++)
+    int n,k,m=0,ans=INT_MIN,j,l;
+    cin>>n>>k;
+    vector<int> a(n),b(n);
+    b[0]=0,b[n-1]=0;
+    for(int i=0;i<n;i++)
     {
         cin>>a[i];
-        c[i]=a[i];
     }
-    vector<vector<ll>> b(n,vector<ll> (m));
-    sort(a.begin(),a.end());
-    ll j1=0,j2=0;
-    for(int i=0;i<(n*m);i++)
+    l=a[0];
+    for(int i=1;i<n-1;i++)
     {
-        if(j2==m)
-        {
-            j1++;
-            j2=0;
-        }
-        b[j1][j2]=a[i];
-        j2++;
+        if(a[i]>a[i-1] && a[i]>a[i+1])
+        b[i]=1;
+        else
+        b[i]=0;
     }
-    for(int i=0;i<(n*m);i++)
+    for(int i=1;i<k-1;i++)   
     {
-        ll k=LLONG_MAX,temp;
-        j1=-1,j2=-1;
-        for(int x=0;x<n;x++)
-        {
-            temp=0;
-            for(int y=m-1;y>=0;y--)
-            {
-                if(b[x][y]!=0 && b[x][y]!=c[i])
-                {
-                    temp++;
-                }
-                if(b[x][y]==c[i])
-                {
-                    if(temp<k)
-                    {
-                        j1=x;
-                        j2=y;
-                        k=temp;
-                    }
-                    break;
-                }
-            }
-        }
-      //  cout<<k<<" "<<j1<<" "<<j2<<"\n";
-        b[j1][j2]=0;
-        ans=ans+k;
+        if(b[i]==1)
+        m++;
     }
-    cout<<ans<<"\n";
+   // cout<<m<<"\n";
+    ans=max(ans,m);
+    j=1;
+    for(int i=k;i<n;i++)
+    {
+        if(b[i-k+1]==1)
+        m--;
+        if(b[i-1]==1)
+        m++;
+       // cout<<m<<"\n";
+        if(m>ans)
+        {
+            ans=m;
+            j=i-k+2;
+        }
+    }
+    cout<<ans+1<<" "<<j<<"\n";
 }
    
        
 int main() {
- //    freopen("hps.in", "r", stdin);
-//	freopen("hps.out", "w", stdout);
     ios::sync_with_stdio(0);
     cin.tie(0);
 	int t=1;
