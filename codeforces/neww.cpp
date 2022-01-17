@@ -3,35 +3,16 @@ using namespace std;
 
 int main(){
     
-    int n;
-    cin>>n;
-    vector<int> a(n),b(n,0);
-    for(int i=0;i<n;i++)
-    cin>>a[i];
-    for(int i=n-2;i>=0;i--)
+    string s="lllrulluu",str="";
+    char p=s[0];
+    for(int i=1;i<s.length();i++)
     {
-        if(a[i]==0)
+        if(s[i]!=p)
         {
-            b[i]=-1;
-            continue;
+            str=str+p;
+            p=s[i];
         }
-        else if(a[i]+i>=n-1)
-        {
-            b[i]=1;
-            continue;
-        }
-        int m=INT_MAX;
-        for(int j=1;j<=a[i];j++)
-        {
-            
-            if(b[j+i]!=-1)
-            m=min(b[j+i],m);
-           
-        }
-        if(m==INT_MAX)
-        b[i]=0;
-        else
-        b[i]=m+1;
     }
-    cout<<b[0]<<"\n";
+    str=str+p;
+    cout<<str; 
 }

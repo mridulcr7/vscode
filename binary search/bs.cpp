@@ -9,26 +9,29 @@ typedef long long ll;
 
 int main()
 {
-    int n,d;
-    cin>>n>>d;
-    vector<int> a(n);
-    for(int i=0;i<n;i++)
+    ll n,k,ans;
+    cin>>n>>k;
+    ll l=1,h=1e18;
+    while(l<=h)
     {
-        cin>>a[i];
-    }
-    double l=0,h=100,ans;
-    for(int j=0;j<100;j++)
-    {
-        double m=(l+h)/2;
-        vector<double> b(n),c(n);
-        for(int i=0;i<n;i++)
+        ll m=(l+h)/2;
+        ll d=(m/n)+(m%n);
+        if(d==k)
         {
-            b[i]=a[i]-m;
-            if(i==0)
-            c[i]=b[i];
+            if(m%n==0)
+            ans=m-1;
             else
-            c[i]+=c[i-1]+b[i];
+            ans=m;
+            break;
+        }
+        else if(d>k)
+        {
+            h=m-1;
+        }
+        else
+        {
+            l=m+1;
         }
     }
-    cout<<ans<<"\n";
+    cout<<ans<<"\n";b
 }

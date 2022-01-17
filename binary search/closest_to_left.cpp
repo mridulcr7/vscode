@@ -10,13 +10,14 @@ int main()
 {
     int n,k,x;
     cin>>n>>k;
-    vector<int> a(n);
-    for(int i=0;i<n;i++)
+    vector<int> a(n+1);
+    a[0]=-1;
+    for(int i=1;i<=n;i++)
     cin>>a[i];
     for(int i=0;i<k;i++)
     {
         cin>>x;
-        int l=0,h=n-1,m,ans=-1;
+        int l=0,h=n,m,ans;
         while(l<=h)
         {
             m=l+(h-l)/2;
@@ -30,9 +31,7 @@ int main()
                 h=m-1;
             }
         }
-        if(ans==-1)
-        cout<<"0\n";
-        else
-        cout<<ans+1<<"\n";
+        
+        cout<<ans<<"\n";
     }
 }
