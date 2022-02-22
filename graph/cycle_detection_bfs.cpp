@@ -5,23 +5,22 @@ using namespace std;
 int main()
 {
     int ans=0;
-    vector<int> adj[6];
-    adj[1].push_back(2);
-    adj[1].push_back(3);
-    adj[2].push_back(1);
-    adj[2].push_back(5);
-    adj[3].push_back(4);
-    adj[3].push_back(1);
-    adj[4].push_back(3);
-    adj[5].push_back(2);
-    adj[5].push_back(4);
+    int v,e;
+	cin>>v>>e;
+	vector<int> adj[v];
+	for(int i = 0; i < e; i++){
+		int u, v;
+		cin>>u>>v;
+		adj[u].push_back(v);
+		adj[v].push_back(u);
+	}
 
-    bool visited[6]={false};
+    bool visited[v]={false};
 
-    vector<int> parent(6,-1);
+    vector<int> parent(v,-1);
     queue<int> nodes;
-    nodes.push(1);
-    visited[1]=true;
+    nodes.push(0);
+    visited[0]=true;
    // cout<<nodes.front()+1<<"\n";
     while(!nodes.empty())
     {

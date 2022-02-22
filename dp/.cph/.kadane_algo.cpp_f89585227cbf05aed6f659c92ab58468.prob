@@ -1,0 +1,1 @@
+{"name":"Local: kadane_algo","url":"d:\\competitive programming\\dp\\kadane_algo.cpp","tests":[{"id":1644687574398,"input":"8\n-1 3 -2 5 3 -5 2 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\competitive programming\\dp\\kadane_algo.cpp","group":"local","local":true}

@@ -1,19 +1,25 @@
 
 #include <bits/stdc++.h> 
-
+ 
 using namespace std;
-
+ 
+ 
 typedef long long ll;
 typedef pair<ll,ll> pr;
-
-ll mridul=INT_MAX;
-
-ll mm=1e9;
-
-bool compare(pair<string,ll> &a, pair<string,ll> &b)
+ 
+ 
+ll mridul=LLONG_MAX;
+ll mod= 1e9+7;
+vector<int> adj[100001];
+vector<bool> visited(100001,false);
+vector<ll> prime;
+vector<ll> no(10000);
+ 
+bool compare(pair<ll,ll> &a, pair<ll,ll> &b)
 {
-    
-    return a.second>b.second;
+    double a1=(1.0*a.first)/a.second;
+    double a2=(1.0*b.first)/b.second;
+    return a1>a2;
 }
  
 struct comp1{
@@ -23,8 +29,8 @@ struct comp1{
         return a.first < b.first;
     }
 };    
-ll mod=1000000007;
-
+ 
+ 
 int abs(int a,int b)
 {
     if(a>b)
@@ -32,82 +38,107 @@ int abs(int a,int b)
     else
     return b-a;
 } 
-
-int msb(ll n)
+ 
+ 
+// int using_dfs(int current,int m)
+// {
+//     visited[current]=true;
+//     m=min(m,a[current]);
+//     for(int x:adj[current])
+//     {
+//        if(visited[x])
+//        continue;
+//        m=using_dfs(adj,a,visited,x,m); 
+//     }
+//     return m;
+   
+// }
+ 
+int mem(int n,int t,vector<int> &a,vector<int> &dp,vector<bool> &vis)
 {
-    int i=63;
-    while((n&(1ll<<i))==0 && i>0)
+    if(t==0)
+    return 1;
+    if(vis[t])
+    return dp[t];
+    int ans=0;
+    for(int i=0;i<n;i++)
     {
-        i--;
+        if(t-a[i]>=0)
+        ans=(ans+mem(n,t-a[i],a,dp,vis))%mod;
     }
-    return i;
+    vis[t]=true;
+    dp[t]=ans;
+    return ans;
 }
 
-ll digit(ll n)
-{
-    ll s=0;
-    while(n>0)
-    {
-        s=s+n%10;
-        n/=10;
-    }
-    return s;
-}
+// void sieve()
+// {
+    
+//     bool vis[10001];
+
+//     memset(vis, true, sizeof(vis));
+ 
+//     for (ll p = 2; p * p <= 10000; p++)
+//     {
+        
+//         if (vis[p] == true)
+//         {
+            
+//             for (ll i = p * p; i <= 10000; i += p)
+//                 vis[i] = false;
+//         }
+//     }
+ 
+    
+//     for (ll p = 2; p <= 10000; p++)
+//         if (vis[p])
+//            prime.push_back(p);
+// }
+       
+// }
+ 
+// bool check_prime(ll n)
+// {
+//     for(ll i=2;i*i<=n;i++)
+//     {
+//         if(n%i==0)
+//         return false;
+//     }
+//     return true;
+// }
 
 void solve()
 {
-    ll n,k,i,j,ans=1,pair=0,odd=0;
-    cin>>n>>k;
+    ll n,k;
+    cin>>n;
     string s;
     cin>>s;
-    vector<int> a(26,0);
-    for(int i=0;i<n;i++)
+    if(s[0]=='0' || s[1]=='0' || s[n]=='0')
     {
-        a[s[i]-97]++;
+        cout<<"No\n";
+        return;
     }
-     for(int i=0;i<26;i++)
+    cout<<"Yes\n";
+    vector<ll> a(n);
+    a[0]=0;
+    a[1]=1;
+    for(int i=2;i<n;i++)
     {
-        pair=pair+a[i]/2;
-        if(a[i]%2!=0)
-        odd++;
-    }   
-    ll l=2,h=n/k;
-   // cout<<l<<" "<<h<<"\n";
-    while(l<=h)
-    {
-        ll m=(l+h)/2;
-        ll t=0,r,c;
-        r=m/2;
-        if(m%2==0)
-        t=(2*pair)/m;
-        else
+        a[i]=i;
+        if(s[i]=='0')
         {
-           int temp=pair/r;
-           if(odd>=temp)
-           t=temp;
-           else
-           {
-               t=temp+(2*(pair-odd*r))/m;
-           }
-        }
-        //cout<<m<<" "<<t<<"\n";
-        if(t>=k)
-        {
-            ans=m;
-            l=m+1;
-        }
-        else
-        {
-            h=m-1;
+            swap(a[i],a[i-1]);
         }
     }
-    cout<<ans<<"\n";
-    
+    for(auto x:a)
+    cout<<x<<" ";
+    cout<<"\n";
 }    
 int main() {
     ios::sync_with_stdio(0);
-    cin.tie(0);
+    cin.tie(NULL);
 	int t=1;
+     //sieve();
     cin>>t;
     while(t--)
     {
