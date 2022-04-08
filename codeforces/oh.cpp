@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h> 
  
 using namespace std;
@@ -15,11 +14,14 @@ vector<bool> visited(100001,false);
 vector<ll> prime;
 vector<ll> no(10000);
  
-bool compare(pair<ll,ll> &a, pair<ll,ll> &b)
+bool comp(const vector<ll>& v1, const vector<ll>& v2)
 {
-    double a1=(1.0*a.first)/a.second;
-    double a2=(1.0*b.first)/b.second;
-    return a1>a2;
+    return v1[2]<v2[2];
+}
+
+bool comp1(const pair<string,int>& v1, const pair<string,int>& v2)
+{
+    v1.second>v2.second;
 }
  
 struct comp1{
@@ -41,16 +43,7 @@ int abs(int a,int b)
  
  
 // int using_dfs(int current,int m)
-// {
-//     visited[current]=true;
-//     m=min(m,a[current]);
-//     for(int x:adj[current])
-//     {
-//        if(visited[x])
-//        continue;
-//        m=using_dfs(adj,a,visited,x,m); 
-//     }
-//     return m;
+// { rn m;
    
 // }
  
@@ -96,52 +89,83 @@ int mem(int n,int t,vector<int> &a,vector<int> &dp,vector<bool> &vis)
 // }
        
 // }
+
  
-// bool check_prime(ll n)
-// {
-//     for(ll i=2;i*i<=n;i++)
-//     {
-//         if(n%i==0)
-//         return false;
-//     }
-//     return true;
-// }
+bool check_prime(ll n)
+{
+    for(ll i=2;i*i<=n;i++)
+    {
+        if(n%i==0)
+        return false;
+    }
+    return true;
+}
+
+void rec(string t,ll p,ll z,ll &num,ll &den,ll cur)
+{
+    if(cur==p+z)
+    {
+        ll p1=0,z1=0;
+        for(int i=0;i<t.size();i++)
+        {
+            if(t[i]=='+')
+            p1++;
+            else
+            z1++;
+        }
+        if(p1==p && z1==z)
+        num++;
+        den++;
+        return;
+    }
+    if(t[cur]=='?')
+    {
+        t[cur]='+';
+        rec(t,p,z,num,den,cur+1);
+        t[cur]='-';
+        rec(t,p,z,num,den,cur+1);
+    }
+    else
+    {
+        rec(t,p,z,num,den,cur+1);
+    }
+}
 
 void solve()
 {
-    ll n,k;
-    cin>>n;
     string s;
     cin>>s;
-    if(s[0]=='0' || s[1]=='0' || s[n]=='0')
+    string ans="";
+    int n=s.size();
+    for(int i=0;i<n;i++)
     {
-        cout<<"No\n";
-        return;
-    }
-    cout<<"Yes\n";
-    vector<ll> a(n);
-    a[0]=0;
-    a[1]=1;
-    for(int i=2;i<n;i++)
-    {
-        a[i]=i;
-        if(s[i]=='0')
+        if (s[i] != 'A' && s[i] != 'a' && s[i] != 'E' && s[i] != 'e' && s[i] != 'I' && s[i] != 'i' && s[i] != 'O' && s[i] != 'o' && s[i] != 'U' && s[i] != 'u' && s[i] != 'Y' && s[i] != 'y')
         {
-            swap(a[i],a[i-1]);
+            ans.push_back('.');
+            if(s[i]>=65 && s[i]<=90)
+            {
+                s[i]=s[i]+32;
+            }
+            ans.push_back(s[i]);
         }
     }
-    for(auto x:a)
-    cout<<x<<" ";
-    cout<<"\n";
-}    
+    cout<<ans<<"\n";
+}
+
+
 int main() {
+    //  #ifndef ONLINE_JUDGE
+    // fropen("input.txt","r",stdin);
+    // fropen("output.txt","w",stdout);
+    // #endif
     ios::sync_with_stdio(0);
     cin.tie(NULL);
-	int t=1;
+    ll t=1; 
      //sieve();
-    cin>>t;
+   // cin>>t;
+  
     while(t--)
     {
-       solve();
+        solve();
     }    
 }

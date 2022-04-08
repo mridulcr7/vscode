@@ -8,7 +8,7 @@ int main()
 {
     //1.__bulltin_clz and  __builtin_clzll-no. of zeroes at beginning of the number 
 
-    int x=17,y=38; //17-000..0010001
+    int x=16,y=38; //17-000..0010001
     
     // msb can be found
     cout<< __builtin_clz(x)<<"\n";
