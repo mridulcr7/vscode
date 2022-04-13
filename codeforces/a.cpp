@@ -3,27 +3,28 @@
 using namespace std;
 int main()
 {
-    int n,temp;
-    cin>>n;
-    int a[n];
-    int v[n];
-    for(int i=0;i<n;i++)
+    string s;
+    cin>>s;
+    int n=s.size();
+    string ans="";
+    int i=0,space=1;
+    while(i<n)
     {
-        cin>>a[i];
-    }
-    
-    for(int i=0;i<n;i++)
-    {
-        temp=i+1;
-        if(a[i]==temp)
+        if(i+2<n && s[i]=='W' && s[i+1]=='U' && s[i+2]=='B')
         {
-            v[i]=i+1;
+            i=i+3;
+            if(space==0)
+            {
+                ans.push_back(' ');
+                space=1;
+            }
         }
-        
+        else
+        {
+            ans.push_back(s[i]);
+            i++;
+            space=0;
+        }
     }
-     for(int i=0;i<n;i++)
-     {
-        cout<<v[i]<<endl; 
-     }
-    
+    cout<<ans<<"\n";
 }

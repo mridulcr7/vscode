@@ -1,19 +1,29 @@
-#include <iostream>
+#include <bits/stdc++.h>
+#include <string>
 using namespace std;
- 
-void fun(int x)
+
+void printSS(vector<int> a, vector <int>&ans,int i)
 {
-    if(x > 0)
+    // write your code here
+    if (i==a.size())
     {
-        fun(--x);
-        cout << x <<" ";
-        fun(--x);
+        if(ans.size()==3)
+        {
+            for(int i=0;i<3;i++)
+            cout<<ans[i]<<" ";
+            cout<<"\n";
+        }
+        return;
     }
+    ans.push_back(a[i]);
+    printSS(a,ans,i+1);
+    ans.pop_back();
+    printSS(a, ans,i+1);
 }
- 
+
 int main()
 {
-    int a = 4;
-    fun(a);
-    return 0;
+    vector<int> a={1,2,3,4,5,6};
+    vector<int> ans;
+    printSS(a,ans,0);
 }
