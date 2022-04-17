@@ -3,28 +3,45 @@
 using namespace std;
 int main()
 {
-    string s;
-    cin>>s;
-    int n=s.size();
-    string ans="";
-    int i=0,space=1;
-    while(i<n)
+
+ int n,diff,sum,maxi,mini=999,result;
+ cin>>n;
+ int a[n];
+ vector<int> v;
+ vector<int>v1;
+ for(int i=0;i<n;i++)
+ {
+     cin>>a[i];
+ }
+ for(int i=0;i<n-1;i++)
+ 
+ {
+     diff=a[i+1]-a[i];
+     v.push_back(diff);
+     
+ }
+
+
+ 
+ for(int i=0;i<n-2;i++)
+ {
+     sum=v[i]+v[i+1];
+     maxi = sum;
+     for(int j=0;j<n-1;j++)
     {
-        if(i+2<n && s[i]=='W' && s[i+1]=='U' && s[i+2]=='B')
-        {
-            i=i+3;
-            if(space==0)
-            {
-                ans.push_back(' ');
-                space=1;
-            }
-        }
-        else
-        {
-            ans.push_back(s[i]);
-            i++;
-            space=0;
-        }
+        maxi = max(maxi, v[j]);
     }
-    cout<<ans<<"\n";
+    // cout<<maxi<<"\n";
+     v1.push_back(maxi);
+ 
+ 
+ 
+ 
+}
+
+// cout<<endl;
+// for(int i=0;i<n-2;i++)cout<<v1[i];
+
+sort(v1.begin(),v1.end());
+cout<<v1[0];
 }
