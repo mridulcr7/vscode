@@ -2,6 +2,17 @@
 
 using namespace std;
 
+typedef long long ll;
+typedef pair<ll, ll> pr;
+
+// ll mridul = LLONG_MAX;
+// ll mod = 1e9 + 7;
+// vector<int> adj[100001];
+// // vector<bool> visited(100001,false);
+// vector<ll> prime;
+// vector<ll> no(10000);
+// vector<ll> gdb(1001, INT_MAX);
+
 int main()
 {
     int v,e;

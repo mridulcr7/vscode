@@ -158,27 +158,32 @@ void solve()
     ll n=0,mod=998244353,x,y,z=0,d1=0,d2=0,r,ans=0,m=INT_MAX,k,o=0,j=0,q;
     string s,t="",s1,s2,s3;
     char c1,c2,c3;
-    cin>>n>>r;
-     vector<pr> a(n);
-     for(int i=0;i<n;i++)
-        cin>>a[i].first;
-     for(int i=0;i<n;i++)
-        cin>>a[i].second;
-    sort(a.begin(),a.end(),comp);
-    j=0;
-    while(j<n)
+    cin>>n>>s;
+    for(int i=0;i<n;i++)
     {
-        x=a[j].first-a[j].second;
-        if(a[j].first<=r)
-        {
-            d1=r-a[j].first;
-            d2=d1/x+1;
-            ans=ans+d2;
-            r=r-d2*x;
-        }
-        j++;
+        if(s[i]=='T')
+        d1++;
+        else
+        d2++;
     }
-    cout<<ans<<"\n";
+    if(d1!=2*d2)
+    {
+        cout<<"NO\n";
+        return;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(s[i]=='T')
+        o++;
+        else
+        j++;
+        if(j>o || (d1-o<d2-j))
+        {
+            cout << "NO\n";
+            return;
+        }
+    }
+    cout<<"YES\n";
 }
 
 

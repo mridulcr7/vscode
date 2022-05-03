@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>REGISTRATION FORM</h1>
+    <form action="/doesnotexist">
+        <h1>Run Time terror</h1>
+        <div>
+            <label for="fn">First Name:</label>
+            <input type="text" minlength="4" maxlength="15" required id="fn" name="first_name" placeholder="Enter your first name">
+        </div><br>
+        <div>
+            <label for="ln">Last Name:</label>
+            <input type="text" minlength="4" maxlength="15" required id="ln" name="last_name" placeholder="Enter your last name">
+        </div>
+        <div>
+            <p>
+                Gender:
+                <label for="ml">Male</label>
+                <input type="radio" id="ml" name="gender">
+                <label for="fml">Female</label>
+                <input type="radio" id="fml" name="gender">
+            </p>  
+        </div>
+        <div>
+            <label for="btch">Batch</label>
+            <select>
+                <option>
+                    2023
+                </option>
+                <option selected>
+                    2024
+                </option>
+                <option>
+                    2025
+                </option>
+            </select>
+        </div><br>
+        <div>
+            <label for="email">E-Mail</label>
+            <input type="e-mail" id="email" name="eml" required placeholder=" Enter e-mail">
+        </div><br>
+        <div>
+            <label for="pd">Password</label>
+            <input type="password" id="pd" minlength="7" placeholder=" Enter password">
+        </div>
+        <div>
+            <p>Platforms-
+                <label for="chf">Codechef:</label>
+                <input type="checkbox" id="chf">
+                <label for="force">Codeforces:</label>
+                <input type="checkbox" id="force">
+                <label for="lc">Leetcode:</label>
+                <input type="checkbox" id="lc">
+                <label for="hr">Hackerank:</label>
+                <input type="checkbox" id="hr">
+            </p>
+        </div>
+        <div>
+            <label for="date">Date Of Birth  </label>
+            <input type="date" id="date">
+        </div><br>
+        <div>
+            <label for="rng">Rate YourSelf:</label>
+            <input type="range" minlength="1" maxlength="5" id="rng" step="1" id="rng">
+        </div><br>
+        <div>
+            <button>
+                Submit
+            </button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+h2{
+    color:rgb(40, 181, 233);
+    text-align:center;
+    font-weight: 900;
+    font-size: 35px;
+    text-decoration: rgb(26, 1, 44) underline;
+}
+
+#submit{
+    color:bisque;
+    background-color: magenta;
+}
+
+#url{
+    color: palegreen;
+    background-color: navy;
+}
+
+ul a{
+    color:magenta;
+}
