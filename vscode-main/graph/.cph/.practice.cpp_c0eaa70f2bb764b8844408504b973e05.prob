@@ -1,0 +1,1 @@
+{"name":"Local: practice","url":"d:\\Mridul\\graph\\practice.cpp","tests":[{"id":1651055299133,"input":"10 10\n..........\n..........\n..........\n..........\n..........\n...A......\n..........\n....B.....\n..........\n..........\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Mridul\\graph\\practice.cpp","group":"local","local":true}

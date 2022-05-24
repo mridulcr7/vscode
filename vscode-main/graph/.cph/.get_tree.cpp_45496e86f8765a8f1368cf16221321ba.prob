@@ -1,0 +1,1 @@
+{"name":"Local: get_tree","url":"d:\\competitive programming\\graph\\get_tree.cpp","tests":[{"id":1642598171861,"input":"4 4\n1 2\n2 3\n3 4\n4 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\competitive programming\\graph\\get_tree.cpp","group":"local","local":true}

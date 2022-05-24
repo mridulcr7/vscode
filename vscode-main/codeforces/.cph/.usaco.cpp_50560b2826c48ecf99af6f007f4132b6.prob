@@ -1,0 +1,1 @@
+{"name":"Local: usaco","url":"d:\\competitive programming\\codeforces\\usaco.cpp","tests":[{"id":1639924849724,"input":"2\n9\n100???001\n5\n100??","output":"Case #1: IMPOSSIBLE\nCase #2: POSSIBLE"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\competitive programming\\codeforces\\usaco.cpp","group":"local","local":true}

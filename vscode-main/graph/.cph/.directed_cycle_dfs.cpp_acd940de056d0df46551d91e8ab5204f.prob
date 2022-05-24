@@ -1,0 +1,1 @@
+{"name":"Local: directed_cycle_dfs","url":"d:\\competitive programming\\graph\\directed_cycle_dfs.cpp","tests":[{"id":1642683599594,"input":"3 5 3\n1 2\n2 1\n3 1\n2 3\n3 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\competitive programming\\graph\\directed_cycle_dfs.cpp","group":"local","local":true}

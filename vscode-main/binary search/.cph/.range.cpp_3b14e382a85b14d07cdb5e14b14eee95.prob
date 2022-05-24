@@ -1,0 +1,1 @@
+{"name":"Local: range","url":"d:\\competitive programming\\binary search\\range.cpp","tests":[{"id":1640873771227,"input":"5\n10 1 10 3 4\n4\n1 10\n2 9\n3 4\n2 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\competitive programming\\binary search\\range.cpp","group":"local","local":true}

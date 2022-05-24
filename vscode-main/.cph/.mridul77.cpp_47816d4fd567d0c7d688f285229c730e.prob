@@ -1,0 +1,1 @@
+{"name":"Local: mridul77","url":"d:\\Mridul\\vscode-main\\mridul77.cpp","tests":[{"id":1653396666591,"input":"5 4 1\n****\n*..*\n****\n**.*\n..**","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Mridul\\vscode-main\\mridul77.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: dijkstra","url":"d:\\competitive programming\\graph\\dijkstra.cpp","tests":[{"id":1646305814020,"input":"3 4\n1 2 6\n1 3 2\n3 2 3\n1 3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\competitive programming\\graph\\dijkstra.cpp","group":"local","local":true}
