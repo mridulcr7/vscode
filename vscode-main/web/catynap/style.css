@@ -1,9 +1,18 @@
-h2{
+ /*   .-class  #-id   
+ */
+ h2{
     color:rgb(40, 181, 233);
     text-align:center;
     font-weight: 900;
     font-size: 35px;
     text-decoration: rgb(26, 1, 44) underline;
+}
+.hd{
+    color:rgb(44, 7, 138)
+}
+
+.hd:hover {
+    background-color: blanchedalmond;
 }
 
 #submit{
@@ -15,7 +24,23 @@ h2{
     color: palegreen;
     background-color: navy;
 }
-
+/* descendant selector-all tags nested inside another */
 ul a{
     color:magenta;
 }
+
+li:hover{
+    color:aquamarine;
+    text-decoration: darkblue underline;
+}
+
+div{
+    background-color: antiquewhite;
+    width:300px;
+    height:250px;
+    border:5px double rgb(241, 155, 6) ;
+    padding: 10px 20px;
+    margin: 10px 20px;
+}
+
+/* more specific wins  id>class>element*/

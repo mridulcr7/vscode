@@ -7,12 +7,13 @@ typedef pair<ll, ll> pr;
 
 ll mridul = LLONG_MAX;
 ll mod = 1e9 + 7;
+
 vector<ll> adj[200001];
-vector<ll> adj1[200001];
-// vector<bool> visited(100001,false);
 vector<ll> prime;
-vector<ll> vis(200001,0);
-vector<ll> gdb(1001, INT_MAX);
+vector<ll> vis(200001, 0);
+vector<ll> rnk(200001);
+vector<ll> parent(200001);
+
 
 bool comp(const pr &v1, const pr &v2)
 {
@@ -44,23 +45,6 @@ ll abs(ll a, ll b)
 }
 
 
-int mem(int n, int t, vector<int> &a, vector<int> &dp, vector<bool> &vis)
-{
-    if (t == 0)
-        return 1;
-    if (vis[t])
-        return dp[t];
-    int ans = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (t - a[i] >= 0)
-            ans = (ans + mem(n, t - a[i], a, dp, vis)) % mod;
-    }
-    vis[t] = true;
-    dp[t] = ans;
-    return ans;
-}
-
 void sieve()
 {
 
@@ -82,35 +66,6 @@ void sieve()
     for (ll p = 2; p <= 10000; p++)
         if (vis[p])
             prime.push_back(p);
-}
-
-bool check_prime(ll n)
-{
-    for (ll i = 2; i * i <= n; i++)
-    {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
-}
-
-ll cd(ll n)
-{
-    ll cnt = 0;
-    for (ll i = 1; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            // If divisors are equal,
-            // count only one
-            if (n / i == i)
-                cnt++;
-
-            else // Otherwise count both
-                cnt = cnt + 2;
-        }
-    }
-    return cnt;
 }
 
 ll bfs(vector<vector<ll>> &adj,ll n)
@@ -218,7 +173,6 @@ int main()
     // #endif
     ios::sync_with_stdio(0);
     cin.tie(NULL);
-    gdb[1] = 0;
     ll t = 1;
     // sieve();
     // cin >> t;

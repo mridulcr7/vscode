@@ -1,0 +1,34 @@
+h1 {
+    color: rgb(0, 9, 12);
+    text-align: center;
+    font-weight: 900;
+    font-size: 35px;
+    text-decoration: rgb(47, 8, 222) underline;
+}
+
+h2 {
+    color: rgb(9, 10, 10);
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    text-decoration: rgb(89, 3, 3) underline;
+}
+
+input[type="text"]
+{
+    color:blueviolet;
+}
+
+input[type="radio"]:checked {
+    background-color: rgb(247, 10, 10);
+}
+
+input:checked + label{
+    color: rgb(0, 229, 255);
+}
+
+p::first-letter{
+    font-weight: 900;
+    font: size 35px;;
+}
+

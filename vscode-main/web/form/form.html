@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="form_style.css">
     <title>Form</title>
 </head>
+
 <body>
     <h1>REGISTRATION FORM</h1>
     <form action="/doesnotexist">
-        <h1>Run Time terror</h1>
+        <h2>Run Time terror</h2>
         <div>
-            <label for="fn">First Name:</label>
-            <input type="text" minlength="4" maxlength="15" required id="fn" name="first_name" placeholder="Enter your first name">
+            <label for="fn" class="pe">First Name:</label>
+            <input type="text" minlength="4" maxlength="15" required id="fn" name="first_name"
+                placeholder="Enter your first name">
         </div><br>
         <div>
-            <label for="ln">Last Name:</label>
-            <input type="text" minlength="4" maxlength="15" required id="ln" name="last_name" placeholder="Enter your last name">
+            <label for="ln" class="pe">Last Name:</label>
+            <input type="text" minlength="4" maxlength="15" required id="ln" name="last_name"
+                placeholder="Enter your last name">
         </div>
         <div>
             <p>
                 Gender:
-                <label for="ml">Male</label>
+                
                 <input type="radio" id="ml" name="gender">
-                <label for="fml">Female</label>
+                <label for="ml">Male</label>
+            
+                
                 <input type="radio" id="fml" name="gender">
-            </p>  
+                <label for="fml">Female</label>
+            </p>
         </div>
         <div>
-            <label for="btch">Batch</label>
+            <label for="btch" class="pe">Batch</label>
             <select>
                 <option>
                     2023
@@ -42,27 +50,31 @@
             </select>
         </div><br>
         <div>
-            <label for="email">E-Mail</label>
+            <label for="email" class="pe">E-Mail</label>
             <input type="e-mail" id="email" name="eml" required placeholder=" Enter e-mail">
         </div><br>
         <div>
-            <label for="pd">Password</label>
+            <label for="pd" >Password</label>
             <input type="password" id="pd" minlength="7" placeholder=" Enter password">
         </div>
         <div>
             <p>Platforms-
+               
+                <input type="checkbox" id="chf"  >
                 <label for="chf">Codechef:</label>
-                <input type="checkbox" id="chf">
+                
+                <input type="checkbox" id="force" >
                 <label for="force">Codeforces:</label>
-                <input type="checkbox" id="force">
+                
+                <input type="checkbox" id="lc"  >
                 <label for="lc">Leetcode:</label>
-                <input type="checkbox" id="lc">
+                
+                <input type="checkbox" id="hr" >
                 <label for="hr">Hackerank:</label>
-                <input type="checkbox" id="hr">
-            </p>
+            </p>name="cp"
         </div>
         <div>
-            <label for="date">Date Of Birth  </label>
+            <label for="date">Date Of Birth </label>
             <input type="date" id="date">
         </div><br>
         <div>
@@ -76,4 +88,5 @@
         </div>
     </form>
 </body>
+
 </html>
