@@ -1,0 +1,51 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    border: 10px solid #0dcaf4f0;
+    display: flex;
+    flex-direction: row;
+    /* left to right(row),right to left(row-reverse),top to down(column),down to top(column-reverse) */
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+}
+
+#container div {
+    width: 400px;
+    height: 150px;
+    /* margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+/* flex-direction-it decides main axis
+1.row-main axis left to right
+2.row-reverse-main axis right to left
+3.column-main axis top to bottom
+4.column-reverse-main axis bottom to
+
+flex-wrap-decides cross axis
+1.wrap-cross axis left to right(column) or top to bottom(row) 
+2.wrap-reverse-cross axis right to left(column) or bottom to op(column) */
+
+/* justify-content-main axis
+1.flex-start:start at left or top
+2.flex-end:end at right or bottom
+
+align-items-cross axis */
+
+/* align-content-spacing between lines(only effective with wrap i.e., multiple lines) */
+
+/* align-self:to individual items rather than conatiner */
